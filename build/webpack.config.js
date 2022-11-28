@@ -7,20 +7,30 @@
 //总结：vite对于vue项目上手即用，适合不需要对代码分离打包、懒加载、bundle优化等等配置更深入的项目。而webpack入门门槛更高，但适合更长远的优化大型项目
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
 	// entry: './src/index.js',
 	mode: 'development',
 	entry: {
+		// app: {
+		// 	import: './App.vue'
+		// },
 		index: {//dependOn配置是将特定模块抽成一个bundle独立文件，
-			import: './src/index.js',
+			import: './main.js',
 			// dependOn: 'share'
 		},
-		print: {
-			import: './src/print.js',
-			// dependOn: 'share'
-		},
+		// print: {
+		// 	import: './src/print.js',
+		// 	// dependOn: 'share'
+		// },
 		// share: 'lodash' 
+	},
+	resolve: {  //配置模块如会解析
+		extensions: ['.vue', '.js', '.json'],//引入这些文件 可以不带后缀 按顺序解析
+		alias: {
+			'@': path.resolve(__dirname, '../src'), //@方式引入资源
+		}
 	},
 	output: {
 		//    filename: 'main.js',//单入口配置方式
@@ -42,19 +52,29 @@ module.exports = {
 	module: {
 		rules: [
 			{
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-      // 它会应用到普通的 `.js` 文件
-      // 以及 `.vue` 文件中的 `<script>` 块
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
+			// 它会应用到普通的 `.js` 文件
+			// 以及 `.vue` 文件中的 `<script>` 块
+			{
+				test: /\.js$/,
+				loader: 'babel-loader'
+			},
+			{
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env"],
+					},
+				},
+			},
 			{//css loader顺序不能错，因为是链式调用，调用先后出错影响最终结果
 				test: /\.css$/i,
 				use:
-					['vue-style-loader','style-loader', 'css-loader'],
+					['vue-style-loader', 'css-loader'],
 			},
 			{//加载图像
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -68,7 +88,9 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'Development'
+			title: 'Development',
+			template: path.resolve(__dirname, '../public/index.html'),
+      favicon: path.resolve(__dirname, '../public/favicon.ico')
 		}),
 		new VueLoaderPlugin()
 	]
