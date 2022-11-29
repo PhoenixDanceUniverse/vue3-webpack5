@@ -16,3 +16,4 @@
 - 单项目多入口共享文件
 
 **以上打√的是已经配置在项目里的，接下来会逐步配置引入，引入完成后重点在于eslint prettier和各项打包优化配置**
+**@author: Huge_Kl 同微信, github: PhoenixDanceUniverse**
