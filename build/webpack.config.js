@@ -35,7 +35,7 @@ module.exports = {
 	output: {
 		//    filename: 'main.js',//单入口配置方式
 		// filename: 'bundle.js',
-		filename: '[name].bundle.js',//多入口配置方式[name]为占位符，表示entry名称
+		filename: '[name].bundle.js',//多入口配置方式[name]为占位符，表示entry名称[contenthash]生成独有hash,标志文件利于版本更新客户端缓存不替换，高并发场景优化
 		path: path.resolve(__dirname, '../dist'),
 		clean: true
 	},
