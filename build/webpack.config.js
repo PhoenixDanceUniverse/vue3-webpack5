@@ -90,7 +90,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'Development',
 			template: path.resolve(__dirname, '../public/index.html'),
-      favicon: path.resolve(__dirname, '../public/favicon.ico')
+			favicon: path.resolve(__dirname, '../public/favicon.ico')
 		}),
 		new VueLoaderPlugin()
 	]

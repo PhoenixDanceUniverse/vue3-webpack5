@@ -1,5 +1,5 @@
 <template>
-  <div class="example">测试页面</div>
+  <div class="example">测试页面{{msg}}{{id}}</div>
   <router-view/>
 </template>
 
@@ -8,7 +8,8 @@ export default {
   name:'App',
   data () {
     return {
-      msg: 'Hello world!'   
+      msg: 'Hello world!',
+      id: this.$store.state.count
     }
   }
 }

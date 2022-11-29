@@ -2,7 +2,7 @@
 
 ### 预计添加内容 ###
 - vue3 **√** 
-- vuex
+- vuex **√**
 - vue-router **√**
 - typescript
 - vant(创建vant分支引入移动端ui组件)
