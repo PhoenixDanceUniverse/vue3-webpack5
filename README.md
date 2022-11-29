@@ -1,5 +1,6 @@
-## Webpack5+Vue3+Typescript##
-###预计添加内容###
+## Webpack5+Vue3+Typescript ##
+
+### 预计添加内容 ###
 - vue3 **√** 
 - vuex
 - vue-router
@@ -9,7 +10,7 @@
 - eslint
 - prettier
 
-###优化配置##
+### 优化配置 ###
 - 打包优化bundle文件分离式缓存
 - 路由单页面懒加载
 - 单项目多入口共享文件
