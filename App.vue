@@ -1,6 +1,6 @@
 <template>
   <div class="example">测试页面{{msg}}{{id}}</div>
-  <router-view/>
+  <router-view />
 </template>
 
 <script>
