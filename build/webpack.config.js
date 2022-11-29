@@ -27,7 +27,7 @@ module.exports = {
 		// share: 'lodash' 
 	},
 	resolve: {  //配置模块如会解析
-		extensions: ['.vue', '.js', '.json'],//引入这些文件 可以不带后缀 按顺序解析
+		extensions: ['.vue', '.tsx', '.ts','.js', '.json'],//引入这些文件 可以不带后缀 按顺序解析
 		alias: {
 			'@': path.resolve(__dirname, '../src'), //@方式引入资源
 		}
@@ -59,8 +59,14 @@ module.exports = {
 			// 以及 `.vue` 文件中的 `<script>` 块
 			{
 				test: /\.js$/,
-				loader: 'babel-loader'
+				loader: 'babel-loader',
+				exclude: /node_modules/,
 			},
+			{
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,
