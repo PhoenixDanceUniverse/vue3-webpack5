@@ -30,7 +30,7 @@ module.exports = {
 		// share: 'lodash' 
 	},
 	resolve: {  //配置模块如会解析
-		extensions: ['.vue', '.tsx', '.ts', '.js', '.json'],//引入这些文件 可以不带后缀 按顺序解析
+		extensions: ['.vue', '.tsx', '.ts', '.js', '.mjs','.json'],//引入这些文件 可以不带后缀 按顺序解析
 		alias: {
 			'@': path.resolve(__dirname, '../src'), //@方式引入资源
 		}
@@ -134,8 +134,8 @@ module.exports = {
 			favicon: path.resolve(__dirname, '../public/favicon.ico')
 		}),
 		new VueLoaderPlugin(),
-		// ComponentsPlugin({
-    //   resolvers: [VantResolver()],
-    // }),
+		ComponentsPlugin({
+      resolvers: [VantResolver()],
+    }),
 	]
 };
