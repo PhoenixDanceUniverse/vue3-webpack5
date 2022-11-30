@@ -5,7 +5,7 @@
 - vuex **√**
 - vue-router **√**
 - typescript **√**
-- vant(创建vant分支引入移动端ui组件)
+- vant(创建vant分支引入移动端ui组件) **√**
 - element-ui(创建element分支引入pc端ui组件)
 - eslint
 - prettier
@@ -20,6 +20,7 @@
 - 优化eslint配置
 - 优化prettier配置
 - 优化webpack各项配置及热更新优化
+- 优化vant按需引入
 
 **以上打√的是已经配置在项目里的，接下来会逐步配置引入，引入完成后重点在于eslint prettier和各项打包优化配置**
 
