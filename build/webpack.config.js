@@ -9,6 +9,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 
+const { VantResolver } = require('unplugin-vue-components/resolvers');//vant按需引入
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
+
 module.exports = {
 	// entry: './src/index.js',
 	mode: 'development',
@@ -64,7 +67,7 @@ module.exports = {
 			// },
 			{
 				test: /\.tsx?$/,
-				exclude: /node_modules/,
+				// exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
@@ -130,6 +133,9 @@ module.exports = {
 			template: path.resolve(__dirname, '../public/index.html'),
 			favicon: path.resolve(__dirname, '../public/favicon.ico')
 		}),
-		new VueLoaderPlugin()
+		new VueLoaderPlugin(),
+		// ComponentsPlugin({
+    //   resolvers: [VantResolver()],
+    // }),
 	]
 };

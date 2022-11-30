@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.css'
 import Li from './li.png'
-import printMe from './print.js'
+import printMe from './print'
  function component() {
    const element = document.createElement('div');
 	 const btn = document.createElement('button');
